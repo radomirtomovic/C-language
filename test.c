@@ -14,17 +14,13 @@ int main(int argc, char *argv[])
         printf("%d=%s \n", i + 1, name[i]);
     }
     scanf("%d", &operation);
-    if (operation > 7)
+    if (operation > len)
     {
         printf(" \n \nERROR\n restart? Y(yes)/N(no)\n");
         scanf(" %c", &yes_no);
         if (yes_no == 'y' || yes_no == 'Y')
         {
-            main(argc, argv);
-        }
-
-        else if (yes_no == 'n' || yes_no == 'N') {
-            return 0;
+            return main(argc, argv);
         }
         
     }
@@ -84,14 +80,6 @@ int main(int argc, char *argv[])
         break;
     }
     printf("%.2lf \n Restart?", z);
-        scanf(" %c", &yes_no);
-        if (yes_no == 'y' || yes_no == 'Y')
-        {
-            main(argc, argv);
-        }
-
-        main(argc, argv);
-
 }
 /*int fact(int number) {
     return number > 0 ? number * fact(number - 1) : 1;
