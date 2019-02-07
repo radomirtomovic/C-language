@@ -1,0 +1,98 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    double x, y, z = 0;
+    int operation = 0;
+    char yes_no;
+    char *name[] =
+        {"add", "subtract", "multiply", "devide", "moduo", "square", "factorial"};
+    int len = sizeof(name) / sizeof(char *);
+    printf("\nChose operation \n");
+    for (int i = 0; i < len; i++)
+    {
+        printf("%d=%s \n", i + 1, name[i]);
+    }
+    scanf("%d", &operation);
+    if (operation > 7)
+    {
+        printf(" \n \nERROR\n restart? Y(yes)/N(no)\n");
+        scanf(" %c", &yes_no);
+        if (yes_no == 'y' || yes_no == 'Y')
+        {
+            main(argc, argv);
+        }
+
+        else if (yes_no == 'n' || yes_no == 'N') {
+            return 0;
+        }
+        
+    }
+
+    printf("\n Insert first number \n");
+    scanf("%lf", &x);
+    if (operation != 7)
+    {
+        printf("\n insert second number \n");
+        scanf("%lf", &y);
+    }
+
+    switch (operation)
+    {
+    case 1:
+        z = x + y;
+        break;
+    case 2:
+        z = x - y;
+        break;
+    case 3:
+        z = x * y;
+        break;
+    case 4:
+        if (y == 0) {
+            printf ("\nERROR\n")
+            return 0;
+        }
+        
+        z = x / y;
+        break;
+    case 5:
+        if (y == 0) {
+                printf ("\nERROR\n")
+                return 0;
+            }
+        z = (int)x % (int)y;
+        break;
+    case 6:
+        z = 1;
+        for (int a = 0; a < y; a++)
+        {
+            z = x * x;
+        };
+        break;
+    case 7:
+        if (x < 0) {
+            printf ("\nERROR\n")
+            return 0;
+        }
+        z = 1;
+        while (x >= 1)
+        {
+            z = z * x;
+            x--;
+        }
+        break;
+    }
+    printf("%.2lf \n Restart?", z);
+        scanf(" %c", &yes_no);
+        if (yes_no == 'y' || yes_no == 'Y')
+        {
+            main(argc, argv);
+        }
+
+        main(argc, argv);
+
+}
+/*int fact(int number) {
+    return number > 0 ? number * fact(number - 1) : 1;
+}*/
