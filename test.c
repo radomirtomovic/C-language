@@ -22,7 +22,10 @@ int main(int argc, char *argv[])
         {
             return main(argc, argv);
         }
-        
+        else if (yes_no == 'n' || yes_no == 'N')
+        {
+            return 0;
+        }
     }
 
     printf("\n Insert first number \n");
@@ -45,18 +48,20 @@ int main(int argc, char *argv[])
         z = x * y;
         break;
     case 4:
-        if (y == 0) {
-            printf ("\nERROR\n")
+        if (y == 0)
+        {
+            printf("\nERROR\n");
             return 0;
         }
-        
+
         z = x / y;
         break;
     case 5:
-        if (y == 0) {
-                printf ("\nERROR\n")
-                return 0;
-            }
+        if (y == 0)
+        {
+            printf("\nERROR\n");
+            return 0;
+        }
         z = (int)x % (int)y;
         break;
     case 6:
@@ -67,8 +72,9 @@ int main(int argc, char *argv[])
         };
         break;
     case 7:
-        if (x < 0) {
-            printf ("\nERROR\n")
+        if (x < 0)
+        {
+            printf("\nERROR\n");
             return 0;
         }
         z = 1;
@@ -79,7 +85,16 @@ int main(int argc, char *argv[])
         }
         break;
     }
-    printf("%.2lf \n Restart?", z);
+    printf("%.2lf \n Restart? Y(yes)/N(no)", z);
+    scanf(" %c", &yes_no);
+    if (yes_no == 'y' || yes_no == 'Y')
+    {
+        return main(argc, argv);
+    }
+    else if (yes_no == 'n' || yes_no == 'N')
+    {
+        return 0;
+    }
 }
 /*int fact(int number) {
     return number > 0 ? number * fact(number - 1) : 1;
