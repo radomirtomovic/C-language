@@ -81,16 +81,16 @@ int main(int argc, char *argv[])
         break;
     case 6:
         z = 1;
-        while (y < 0)
-        {
-            z = 1 / (z * x);
-            y++;
-        }
-        while (y > 0)
+        for(int i = 0; i < y; i++)
         {
             z = z * x;
-            y--;
-        };
+        }
+        for(int i = 0; i > y; i--)
+        {
+            x *= x;
+            z = 1 / x;
+        }
+        
         break;
     case 7:
         if (x < 0)
