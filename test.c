@@ -5,8 +5,7 @@ int main(int argc, char *argv[])
     double x, y, z = 0;
     int operation = 0;
     char yes_no;
-    char *name[] =
-        {"add", "subtract", "multiply", "devide", "moduo", "square", "factorial"};
+    char *name[] = {"add", "subtract", "multiply", "devide", "moduo", "power", "factorial"};
     int len = sizeof(name) / sizeof(char *);
     printf("\nChose operation \n");
     for (int i = 0; i < len; i++)
@@ -16,7 +15,7 @@ int main(int argc, char *argv[])
     scanf("%d", &operation);
     if (operation > len)
     {
-        printf(" \n \nERROR\n restart? Y(yes)/N(no)\n");
+        printf(" \n \nERROR:please pick the number between 1 and %d\n Restart? Y(yes)/N(no)\n", len);
         scanf(" %c", &yes_no);
         if (yes_no == 'y' || yes_no == 'Y')
         {
@@ -50,8 +49,16 @@ int main(int argc, char *argv[])
     case 4:
         if (y == 0)
         {
-            printf("\nERROR\n");
-            return 0;
+            printf(" \n \nERROR:can not devide by zero!\n Restart? Y(yes)/N(no)\n");
+            scanf(" %c", &yes_no);
+            if (yes_no == 'y' || yes_no == 'Y')
+            {
+                return main(argc, argv);
+            }
+            else if (yes_no == 'n' || yes_no == 'N')
+            {
+                return 0;
+            }
         }
 
         z = x / y;
@@ -59,23 +66,45 @@ int main(int argc, char *argv[])
     case 5:
         if (y == 0)
         {
-            printf("\nERROR\n");
-            return 0;
+            printf(" \n \nERROR:can not devide by zero!\n Restart? Y(yes)/N(no)\n");
+            scanf(" %c", &yes_no);
+            if (yes_no == 'y' || yes_no == 'Y')
+            {
+                return main(argc, argv);
+            }
+            else if (yes_no == 'n' || yes_no == 'N')
+            {
+                return 0;
+            }
         }
         z = (int)x % (int)y;
         break;
     case 6:
         z = 1;
-        for (int a = 0; a < y; a++)
+        while (y < 0)
         {
-            z = x * x;
+            z = 1 / (z * x);
+            y++;
+        }
+        while (y > 0)
+        {
+            z = z * x;
+            y--;
         };
         break;
     case 7:
         if (x < 0)
         {
-            printf("\nERROR\n");
-            return 0;
+            printf(" \n \nERROR:can not factorial negative number!\n Restart? Y(yes)/N(no)\n");
+            scanf(" %c", &yes_no);
+            if (yes_no == 'y' || yes_no == 'Y')
+            {
+                return main(argc, argv);
+            }
+            else if (yes_no == 'n' || yes_no == 'N')
+            {
+                return 0;
+            }
         }
         z = 1;
         while (x >= 1)
