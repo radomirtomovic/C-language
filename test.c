@@ -131,6 +131,3 @@ int main(int argc, char *argv[])
         return 0;
     }
 }
-/*int fact(int number) {
-    return number > 0 ? number * fact(number - 1) : 1;
-}*/
