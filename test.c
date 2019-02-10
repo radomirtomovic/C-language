@@ -83,16 +83,20 @@ int main(int argc, char *argv[])
         z = 1;
         if (y < 0)
         {
-            for(int i = 0; i > y ; i--)
+            for (int i = 0; i > y; i--)
             {
                 z = z * x;
-                z = 1 / z;
+            }
+            z = 1 / z;
+        }
+        else
+        {
+            for (int i = 0; i < y; i++)
+            {
+                z = z * x;
             }
         }
-        for(int i = 0; i < y; i++)
-        {
-            z = z * x;
-        }
+
         break;
     case 7:
         if (x < 0)
